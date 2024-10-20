@@ -14,16 +14,12 @@ public class Recursao {
 //        inverterArray(new int[]{1, 2, 3, 7, 9, 4}, 0, numeros.length - 1);
 //        System.out.println(Arrays.toString(numeros));
 
-        isPalindromo("A cara rajada da jararaca");
-
-
+        isPalindromo("");
     }
 
     static public void isPalindromo(String palavra) {
         int intervalo = 0;
-        palavra = palavra.toLowerCase();
-        palavra = palavra.trim();
-        String[] palavraArray = palavra.split("");
+        String[] palavraArray = palavra.toLowerCase().trim().split("");
 
         if (palavraArray.length == 1 || palavraArray.length == 0) {
             System.out.println("true");
@@ -34,10 +30,8 @@ public class Recursao {
             System.out.println("false");
             System.exit(0);
         }
-
         String[] arrays = Arrays.copyOfRange(palavraArray, ++intervalo, palavraArray.length - 1);
-        String resultado = String.join("", arrays);
-        isPalindromo(resultado);
+        isPalindromo(String.join("", arrays));
     }
 
     static public void inverterArray(int[] numeros, int inicio, int fim) {
