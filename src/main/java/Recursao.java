@@ -1,37 +1,33 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class Recursao {
-
 
     public static void main(String[] args) {
         //contadorDESCRecursivo(10);
         //contadorCrescenteRecursivo(4);
         //contadorDecrecenteCrescenteRecursivo(4);
         //contadorCrescenteDECRecursivo(0, 4);
-
-//        int[] numeros = {1, 2, 3 , 7 , 9 , 4};
-//        inverterArray(new int[]{1, 2, 3, 7, 9, 4}, 0, numeros.length - 1);
-//        System.out.println(Arrays.toString(numeros));
-
-        isPalindromo("");
+        //int[] numeros = {1, 2, 3 , 7 , 9 , 4};
+        //inverterArray(new int[]{1, 2, 3, 7, 9, 4}, 0, numeros.length - 1);
+        //System.out.println(Arrays.toString(numeros));
+        //permutacaoRecursivo("riana");
+        System.out.println(isPalindromo("anotaram a data da maratonA"));
     }
 
-    static public void isPalindromo(String palavra) {
+    static public boolean isPalindromo(String palavra) {
         int intervalo = 0;
         String[] palavraArray = palavra.toLowerCase().trim().split("");
+        if (palavraArray.length == 1 || palavraArray.length == 0)
+            return true;
 
-        if (palavraArray.length == 1 || palavraArray.length == 0) {
-            System.out.println("true");
-            System.exit(0);
-        }
+        if (!Objects.equals(palavraArray[intervalo], palavraArray[palavraArray.length - 1]))
+            return false;
 
-        if(!Objects.equals(palavraArray[intervalo], palavraArray[palavraArray.length - 1])) {
-            System.out.println("false");
-            System.exit(0);
-        }
         String[] arrays = Arrays.copyOfRange(palavraArray, ++intervalo, palavraArray.length - 1);
-        isPalindromo(String.join("", arrays));
+        return isPalindromo(String.join("", arrays));
     }
 
     static public void inverterArray(int[] numeros, int inicio, int fim) {
